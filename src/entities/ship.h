@@ -15,4 +15,7 @@ namespace tesseract::entities
 	void InitShip(Ship& Player);
 	void UpdateShip(Ship& Player);
 	void DrawShip(Ship& Player);
+	void InitShip2(Ship& Player);
+	void UpdateShip2(Ship& Player);
+	void DrawShip2(Ship& Player);
 }

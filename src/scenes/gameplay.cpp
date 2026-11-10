@@ -12,7 +12,7 @@ namespace tesseract::scenes
 	static bool isGameOver;
 
 	static const int fontSize = 30;
-	static const char* loseMessage = "GAME OVER - Press enter to retry.\nPress M to go back to the menu.";
+	static const char* loseMessage = "GAME OVER - Press enter to retry.\nPress ESC to go back to the menu.";
 
 	void InitGameplay()
 	{
@@ -46,7 +46,7 @@ namespace tesseract::scenes
 				InitGameplay();
 		}
 
-		if (IsKeyDown(KEY_M))
+		if (IsKeyDown(KEY_ESCAPE))
 		{
 			ChangeScene(Menu);
 		}

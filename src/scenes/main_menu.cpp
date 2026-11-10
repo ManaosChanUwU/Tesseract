@@ -17,8 +17,11 @@ namespace tesseract::scenes
 	static const int verPadding = 10;
 
 	static engine::Button playButton;
+	static engine::Button twoPlayersButton;
 	static engine::Button creditsButton;
 	static engine::Button exitButton;
+
+	static bool twoPlayers = false;
 
 	void InitMainMenu()
 	{
@@ -30,7 +33,10 @@ namespace tesseract::scenes
 		int fontSize = static_cast<int>(screenHeight / buttonFontRatio);
 
 		Vector2 pos = { (screenWidth - size.x) / 2, screenHeight / 2 };
-		engine::InitButton(playButton, pos, size, "PLAY", fontSize, buttonColor, buttonTextColor);
+		engine::InitButton(playButton, pos, size, "1 PLAYER", fontSize, buttonColor, buttonTextColor);
+		
+		pos.y += size.y + spacing;
+		engine::InitButton(twoPlayersButton, pos, size, "2 PLAYERS", fontSize, buttonColor, buttonTextColor);
 
 		pos.y += size.y + spacing;
 		engine::InitButton(creditsButton, pos, size, "CREDITS", fontSize, buttonColor, buttonTextColor);
@@ -43,6 +49,9 @@ namespace tesseract::scenes
 	{
 		if (engine::IsButtonClicked(playButton))
 			ChangeScene(Game);
+			
+		else if (engine::IsButtonClicked(twoPlayersButton))
+			ChangeScene(Game);//2 jugadores
 		else if (engine::IsButtonClicked(creditsButton))
 			ChangeScene(Credits);
 		else if (engine::IsButtonClicked(exitButton))
@@ -52,6 +61,7 @@ namespace tesseract::scenes
 	void DrawMainMenu()
 	{
 		engine::DrawButton(playButton);
+		engine::DrawButton(twoPlayersButton);
 		engine::DrawButton(creditsButton);
 		engine::DrawButton(exitButton);
 

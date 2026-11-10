@@ -11,8 +11,9 @@ namespace tesseract::scenes
 	static const float buttonFontRatio = 24.0f;
 	static const Color buttonColor = DARKGRAY;
 	static const Color buttonTextColor = WHITE;
-	static const char* creditsText = "Game programed by: Ivan Abraham";
-	static const char* verText = "v0.2";
+	static const char* creditsText = "Game programed and created by: Ivan Abraham";
+	static const char* creditsTextMe = "Forked by ManaosChan";
+	static const char* verText = "v0.3";
 	static const int verFontSize = 20;
 	static const int verPadding = 10;
 

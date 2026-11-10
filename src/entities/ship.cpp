@@ -19,7 +19,7 @@ namespace tesseract::entities
 	{
 		Player.velocity += Player.gravity * GetFrameTime();
 
-		if (IsKeyPressed(KEY_SPACE))
+		if (IsMouseButtonPressed(0))
 		{
 			Player.velocity = -Player.jumpPower;
 		}
@@ -34,6 +34,38 @@ namespace tesseract::entities
 	}
 
 	void DrawShip(Ship& Player)
+	{
+		DrawRectangleV(Player.pos, Player.size, RED);
+	}
+
+	void InitShip2(Ship& Player)
+	{
+		Player.size = { (GetScreenWidth() / 10.0f), (GetScreenHeight() / 15.0f) };
+		Player.pos = { (Player.size.x + 60.0f), (GetScreenHeight() / 2.0f) };
+		Player.jumpPower = defaultJumpPower;
+		Player.gravity = defaultGravity;
+		Player.velocity = 0.0f;
+	}
+
+	void UpdateShip2(Ship& Player)
+	{
+		Player.velocity += Player.gravity * GetFrameTime();
+
+		if (IsKeyPressed(KEY_SPACE))
+		{
+			Player.velocity = -Player.jumpPower;
+		}
+
+		Player.pos.y += Player.velocity * GetFrameTime();
+
+		if (engine::TopScreenRecCol(Player.pos))
+		{
+			Player.pos.y = 0.0f;
+			Player.velocity = 0.0f;
+		}
+	}
+
+	void DrawShip2(Ship& Player)
 	{
 		DrawRectangleV(Player.pos, Player.size, RED);
 	}

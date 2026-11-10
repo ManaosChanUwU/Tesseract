@@ -26,6 +26,8 @@ namespace tesseract
 	{
 		static Vector2 screenSize = { 1280, 720 };
 		InitWindow(static_cast<int>(screenSize.x), static_cast<int>(screenSize.y), "TESSERACT");
+		SetExitKey(KEY_NULL);
+
 		SetTargetFPS(60);
 
 		scenes::ChangeScene(scenes::Menu);
