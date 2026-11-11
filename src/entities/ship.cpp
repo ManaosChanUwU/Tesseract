@@ -13,6 +13,8 @@ namespace tesseract::entities
 		Player.jumpPower = defaultJumpPower;
 		Player.gravity = defaultGravity;
 		Player.velocity = 0.0f;
+		Player.shipImage = LoadImage("res/ship.png");
+		Player.shipTexture = LoadTextureFromImage(Player.shipImage);
 	}
 
 	void UpdateShip(Ship& Player)
@@ -36,5 +38,7 @@ namespace tesseract::entities
 	void DrawShip(Ship& Player)
 	{
 		DrawRectangleV(Player.pos, Player.size, RED);
+		//drawtexturepro
+		DrawTextureV(Player.shipTexture, Player.pos, WHITE);
 	}
 }
