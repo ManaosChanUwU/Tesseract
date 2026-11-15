@@ -15,9 +15,9 @@ namespace tesseract::scenes
 	static const int fontSize = 30;
 	static const char* loseMessage = "GAME OVER - Press enter to retry.\nPress ESC to go back to the menu.";
 
-	void SetTwoPlayers(bool twoPlayers)
+	void SetTwoPlayers(bool enable)
 	{
-		twoPlayers = true;
+		twoPlayers = enable;
 	}
 
 
@@ -54,6 +54,17 @@ namespace tesseract::scenes
 			{
 				isGameOver = true;
 			}
+			if (twoPlayers)
+			{
+				if (engine::CollisionRecRec(P2.pos, P2.size, Obs.pos, Obs.size) || engine::BottomScreenRecCol(P2.pos, static_cast<float>(GetScreenHeight())))
+				{
+					isGameOver = true;
+				}
+				if (engine::CollisionRecRec(P2.pos, P2.size, Obs.topPos, Obs.size) || engine::BottomScreenRecCol(P2.pos, static_cast<float>(GetScreenHeight())))
+				{
+					isGameOver = true;
+				}
+			}
 		}
 		else
 		{
@@ -86,8 +97,5 @@ namespace tesseract::scenes
 			DrawText(loseMessage, x, y, fontSize, RED);
 		}
 	}
-	void SetTwoPlayers(bool twoPlayers)
-	{
-		twoPlayers = true;
-	}
+	
 }

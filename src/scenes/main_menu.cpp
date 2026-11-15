@@ -48,14 +48,14 @@ namespace tesseract::scenes
 	{
 		if (engine::IsButtonClicked(playButton))
 		{
-			ChangeScene(Game);
 			SetTwoPlayers(false);
+			ChangeScene(Game);
 		}
 
 		else if (engine::IsButtonClicked(twoPlayersButton))
 		{
-			ChangeScene(Game);//2 jugadores
 			SetTwoPlayers(true);
+			ChangeScene(Game);
 		}
 		else if (engine::IsButtonClicked(creditsButton))
 			ChangeScene(Credits);

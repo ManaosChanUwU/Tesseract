@@ -15,6 +15,6 @@ namespace tesseract::entities
 	};
 
 	void InitShip(Ship& Player);
-	void UpdateShip(Ship& Player, KeyboardKey jumpKey);
+	void UpdateShip(Ship& Player, KeyboardKey);
 	void DrawShip(Ship& Player);
 }
