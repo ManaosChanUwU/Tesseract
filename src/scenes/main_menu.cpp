@@ -2,6 +2,7 @@
 #include "main_menu.h"
 #include "engine/button.h"
 #include "scenes/scene_manager.h"
+#include "gameplay.h"
 
 namespace tesseract::scenes
 {
@@ -20,8 +21,6 @@ namespace tesseract::scenes
 	static engine::Button twoPlayersButton;
 	static engine::Button creditsButton;
 	static engine::Button exitButton;
-
-	static bool twoPlayers = false;
 
 	void InitMainMenu()
 	{
@@ -48,10 +47,16 @@ namespace tesseract::scenes
 	void UpdateMainMenu()
 	{
 		if (engine::IsButtonClicked(playButton))
+		{
 			ChangeScene(Game);
-			
+			SetTwoPlayers(false);
+		}
+
 		else if (engine::IsButtonClicked(twoPlayersButton))
+		{
 			ChangeScene(Game);//2 jugadores
+			SetTwoPlayers(true);
+		}
 		else if (engine::IsButtonClicked(creditsButton))
 			ChangeScene(Credits);
 		else if (engine::IsButtonClicked(exitButton))
