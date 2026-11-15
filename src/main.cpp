@@ -3,5 +3,6 @@
 int main()
 {
 	tesseract::Run();
+	return 0;
 }
 

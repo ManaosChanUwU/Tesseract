@@ -10,6 +10,8 @@ namespace tesseract::entities
 		float velocity;
 		float gravity;
 		float jumpPower;
+		Image shipImage;
+		Texture2D shipTexture;
 	};
 
 	void InitShip(Ship& Player);
