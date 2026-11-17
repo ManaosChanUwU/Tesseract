@@ -22,6 +22,7 @@ namespace tesseract::scenes
 			break;
 
 		case Tutorial:
+			InitTutorial();
 			break;
 
 		case Settings:
@@ -46,6 +47,7 @@ namespace tesseract::scenes
 			break;
 
 		case Tutorial:
+			UpdateTutorial();
 			break;
 
 		case Settings:
@@ -70,7 +72,7 @@ namespace tesseract::scenes
 			break;
 
 		case Tutorial:
-			
+			DrawTutorial();
 			break;
 
 		case Settings:

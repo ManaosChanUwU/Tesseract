@@ -13,7 +13,7 @@ namespace tesseract::scenes
 	static const Color buttonColor = DARKGRAY;
 	static const Color buttonTextColor = WHITE;
 
-	static const char* verText = "v0.3";
+	static const char* verText = "v0.4";
 	static const int verFontSize = 20;
 	static const int verPadding = 10;
 

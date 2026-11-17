@@ -11,9 +11,9 @@ namespace tesseract::scenes
 	static const float buttonFontRatio = 24.0f;
 	static const Color buttonColor = DARKGRAY;
 	static const Color buttonTextColor = WHITE;
-	static const char* tutorialTextOnePlayer = "Game programed and created by: Ivan Abraham";
-	static const char* tutorialTextTwoPlayers = "Forked by ManaosChan";
-	static const char* verText = "v0.3";
+	static const char* tutorialTextOnePlayer = "Player one = SPACEBAR to jump";
+	static const char* tutorialTextTwoPlayers = "Player two = UP ARROW to jump";
+	static const char* verText = "v0.4";
 	static const int verFontSize = 20;
 	static const int verPadding = 10;
 

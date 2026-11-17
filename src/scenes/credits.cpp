@@ -13,7 +13,7 @@ namespace tesseract::scenes
 	static const Color buttonTextColor = WHITE;
 	static const char* creditsText = "Game programed and created by: Ivan Abraham";
 	static const char* creditsTextMe = "Forked by ManaosChan";
-	static const char* verText = "v0.3";
+	static const char* verText = "v0.4";
 	static const int verFontSize = 20;
 	static const int verPadding = 10;
 
@@ -50,6 +50,8 @@ namespace tesseract::scenes
 		int creditsY = (GetScreenHeight() - creditsFontSize) / 2;
 
 		DrawText(creditsText, creditsX, creditsY, creditsFontSize, WHITE);
+		creditsY += (creditsFontSize);
+		DrawText(creditsTextMe, creditsX, creditsY, creditsFontSize, WHITE);
 
 		DrawText(verText, GetScreenWidth() - verWidth - verPadding, verPadding, verFontSize, RED);
 	}

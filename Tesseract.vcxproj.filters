@@ -46,9 +46,6 @@
     <ClCompile Include="src\entities\obstacle.cpp">
       <Filter>Archivos de origen\entities</Filter>
     </ClCompile>
-    <ClCompile Include="src\scenes\scene_manager.cpp">
-      <Filter>Archivos de origen\scenes</Filter>
-    </ClCompile>
     <ClCompile Include="src\engine\button.cpp">
       <Filter>Archivos de origen\engine</Filter>
     </ClCompile>
@@ -61,10 +58,13 @@
     <ClCompile Include="src\entities\background.cpp">
       <Filter>Archivos de origen\entities</Filter>
     </ClCompile>
-    <ClCompile Include="tutorials.cpp">
+    <ClCompile Include="src\game.cpp">
       <Filter>Archivos de origen\scenes</Filter>
     </ClCompile>
-    <ClCompile Include="src\game.cpp">
+    <ClCompile Include="src\scenes\scene_manager.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scenes\tutorials.cpp">
       <Filter>Archivos de origen\scenes</Filter>
     </ClCompile>
   </ItemGroup>
@@ -84,9 +84,6 @@
     <ClInclude Include="src\entities\obstacle.h">
       <Filter>Archivos de encabezado\entities</Filter>
     </ClInclude>
-    <ClInclude Include="src\scenes\scene_manager.h">
-      <Filter>Archivos de encabezado\scenes</Filter>
-    </ClInclude>
     <ClInclude Include="src\engine\button.h">
       <Filter>Archivos de encabezado\engine</Filter>
     </ClInclude>
@@ -99,7 +96,10 @@
     <ClInclude Include="src\entities\background.h">
       <Filter>Archivos de encabezado\entities</Filter>
     </ClInclude>
-    <ClInclude Include="tutorials.h">
+    <ClInclude Include="src\scenes\scene_manager.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scenes\tutorials.h">
       <Filter>Archivos de encabezado\scenes</Filter>
     </ClInclude>
   </ItemGroup>
