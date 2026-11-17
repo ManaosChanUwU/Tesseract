@@ -34,9 +34,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\game.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="src\scenes\gameplay.cpp">
       <Filter>Archivos de origen\scenes</Filter>
     </ClCompile>
@@ -63,6 +60,12 @@
     </ClCompile>
     <ClCompile Include="src\entities\background.cpp">
       <Filter>Archivos de origen\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="tutorials.cpp">
+      <Filter>Archivos de origen\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game.cpp">
+      <Filter>Archivos de origen\scenes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -95,6 +98,9 @@
     </ClInclude>
     <ClInclude Include="src\entities\background.h">
       <Filter>Archivos de encabezado\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="tutorials.h">
+      <Filter>Archivos de encabezado\scenes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

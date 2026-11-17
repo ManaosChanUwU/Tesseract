@@ -2,6 +2,7 @@
 #include "gameplay.h"	
 #include "main_menu.h"
 #include "credits.h"
+#include "tutorials.h"
 
 namespace tesseract::scenes
 {
@@ -69,6 +70,7 @@ namespace tesseract::scenes
 			break;
 
 		case Tutorial:
+			
 			break;
 
 		case Settings:

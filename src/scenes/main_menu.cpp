@@ -19,6 +19,7 @@ namespace tesseract::scenes
 
 	static engine::Button playButton;
 	static engine::Button twoPlayersButton;
+	static engine::Button tutorial;
 	static engine::Button creditsButton;
 	static engine::Button exitButton;
 
@@ -31,11 +32,14 @@ namespace tesseract::scenes
 		float spacing = screenHeight / buttonSpacingRatio;
 		int fontSize = static_cast<int>(screenHeight / buttonFontRatio);
 
-		Vector2 pos = { (screenWidth - size.x) / 2, screenHeight / 2 };
+		Vector2 pos = { (screenWidth - size.x) / 2, screenHeight / 3 };
 		engine::InitButton(playButton, pos, size, "1 PLAYER", fontSize, buttonColor, buttonTextColor);
 		
 		pos.y += size.y + spacing;
 		engine::InitButton(twoPlayersButton, pos, size, "2 PLAYERS", fontSize, buttonColor, buttonTextColor);
+
+		pos.y += size.y + spacing;
+		engine::InitButton(tutorial, pos, size, "HOW TO PLAY", fontSize, buttonColor, buttonTextColor);
 
 		pos.y += size.y + spacing;
 		engine::InitButton(creditsButton, pos, size, "CREDITS", fontSize, buttonColor, buttonTextColor);
@@ -51,12 +55,13 @@ namespace tesseract::scenes
 			SetTwoPlayers(false);
 			ChangeScene(Game);
 		}
-
 		else if (engine::IsButtonClicked(twoPlayersButton))
 		{
 			SetTwoPlayers(true);
 			ChangeScene(Game);
 		}
+		else if (engine::IsButtonClicked(tutorial))
+			ChangeScene(Tutorial);
 		else if (engine::IsButtonClicked(creditsButton))
 			ChangeScene(Credits);
 		else if (engine::IsButtonClicked(exitButton))
@@ -67,6 +72,7 @@ namespace tesseract::scenes
 	{
 		engine::DrawButton(playButton);
 		engine::DrawButton(twoPlayersButton);
+		engine::DrawButton(tutorial);
 		engine::DrawButton(creditsButton);
 		engine::DrawButton(exitButton);
 

@@ -30,6 +30,7 @@
     <ClCompile Include="src\scenes\gameplay.cpp" />
     <ClCompile Include="src\scenes\main_menu.cpp" />
     <ClCompile Include="src\scenes\scene_manager.cpp" />
+    <ClCompile Include="tutorials.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\engine\button.h" />
@@ -42,6 +43,7 @@
     <ClInclude Include="src\scenes\gameplay.h" />
     <ClInclude Include="src\scenes\main_menu.h" />
     <ClInclude Include="src\scenes\scene_manager.h" />
+    <ClInclude Include="tutorials.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>

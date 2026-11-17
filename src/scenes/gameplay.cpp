@@ -25,12 +25,12 @@ namespace tesseract::scenes
 	{
 		isGameOver = false;
 		float screenHeigth = static_cast<float>(GetScreenHeight());
-		entities::InitShip(P1,screenHeigth/2,"res/ship.png");
+		entities::InitShip(P1,screenHeigth* 0.3f,"res/ship.png");
 		entities::InitObstacle(Obs);
 		entities::InitBackground();
 		if (twoPlayers)
 		{
-			entities::InitShip(P2, screenHeigth/2 + P2.size.y, "res/ship2.png");
+			entities::InitShip(P2, screenHeigth*0.4f + P2.size.y, "res/ship2.png");
 		}
 	}
 
