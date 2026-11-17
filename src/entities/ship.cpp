@@ -5,15 +5,15 @@ namespace tesseract::entities
 {
 	static const float defaultJumpPower = 500.0f;
 	static const float defaultGravity = 1300.0f;
-	
-	void InitShip(Ship& Player)
+
+	void InitShip(Ship& Player, float startY, const char* texturePath)
 	{
 		Player.size = { (GetScreenWidth() / 10.0f), (GetScreenHeight() / 15.0f) };
-		Player.pos = { (Player.size.x + 30.0f), (GetScreenHeight() / 2.0f) };
+		Player.pos = { (Player.size.x + 30.0f), startY };
 		Player.jumpPower = defaultJumpPower;
 		Player.gravity = defaultGravity;
 		Player.velocity = 0.0f;
-		Player.shipImage = LoadImage("res/ship.png");
+		Player.shipImage = LoadImage(texturePath);
 		Player.shipTexture = LoadTextureFromImage(Player.shipImage);
 	}
 
@@ -37,8 +37,10 @@ namespace tesseract::entities
 
 	void DrawShip(Ship& Player)
 	{
-		DrawRectangleV(Player.pos, Player.size, RED);
-		//drawtexturepro
-		DrawTextureV(Player.shipTexture, Player.pos, WHITE);
+		Rectangle source = { 0,0,static_cast<float>(Player.shipTexture.width),static_cast<float>(Player.shipTexture.height) };
+		Rectangle destiny = { Player.pos.x,Player.pos.y ,Player.size.x ,Player.size.y };
+		Vector2 origin = { 0,0 };
+		DrawTexturePro(Player.shipTexture, source, destiny, origin, 0, WHITE);
+
 	}
 }

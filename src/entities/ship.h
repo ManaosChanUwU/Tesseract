@@ -14,7 +14,7 @@ namespace tesseract::entities
 		Texture2D shipTexture;
 	};
 
-	void InitShip(Ship& Player);
-	void UpdateShip(Ship& Player, KeyboardKey);
+	void InitShip(Ship& Player, float startY, const char* texturePath);
+	void UpdateShip(Ship& Player, KeyboardKey jumpKey);
 	void DrawShip(Ship& Player);
 }
