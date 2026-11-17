@@ -30,7 +30,7 @@ namespace tesseract::scenes
 		entities::InitBackground();
 		if (twoPlayers)
 		{
-			entities::InitShip(P2, screenHeigth*0.4f + P2.size.y, "res/ship2.png");
+			entities::InitShip(P2, screenHeigth*0.4f, "res/ship2.png");
 		}
 	}
 
@@ -46,21 +46,21 @@ namespace tesseract::scenes
 			entities::UpdateObstacle(Obs);
 			entities::UpdateBackground();
 
-			if (engine::CollisionRecRec(P1.pos, P1.size, Obs.pos, Obs.size) || engine::BottomScreenRecCol(P1.pos, static_cast<float>(GetScreenHeight())))
+			if (engine::CollisionRecRec(P1.pos, P1.size, Obs.pos, Obs.size) || P1.pos.y - P1.size.y > GetScreenHeight())
 			{
 				isGameOver = true;
 			}
-			if (engine::CollisionRecRec(P1.pos, P1.size, Obs.topPos, Obs.size) || engine::BottomScreenRecCol(P1.pos, static_cast<float>(GetScreenHeight())))
+			if (engine::CollisionRecRec(P1.pos, P1.size, Obs.topPos, Obs.size) || P1.pos.y - P1.size.y > GetScreenHeight())
 			{
 				isGameOver = true;
 			}
 			if (twoPlayers)
 			{
-				if (engine::CollisionRecRec(P2.pos, P2.size, Obs.pos, Obs.size) || engine::BottomScreenRecCol(P2.pos, static_cast<float>(GetScreenHeight())))
+				if (engine::CollisionRecRec(P2.pos, P2.size, Obs.pos, Obs.size) || P2.pos.y - P2.size.y > GetScreenHeight())
 				{
 					isGameOver = true;
 				}
-				if (engine::CollisionRecRec(P2.pos, P2.size, Obs.topPos, Obs.size) || engine::BottomScreenRecCol(P2.pos, static_cast<float>(GetScreenHeight())))
+				if (engine::CollisionRecRec(P2.pos, P2.size, Obs.topPos, Obs.size) || P2.pos.y - P2.size.y > GetScreenHeight())
 				{
 					isGameOver = true;
 				}

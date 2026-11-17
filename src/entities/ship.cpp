@@ -15,6 +15,7 @@ namespace tesseract::entities
 		Player.velocity = 0.0f;
 		Player.shipImage = LoadImage(texturePath);
 		Player.shipTexture = LoadTextureFromImage(Player.shipImage);
+		UnloadImage(Player.shipImage);
 	}
 
 	void UpdateShip(Ship& Player, KeyboardKey jumpKey)

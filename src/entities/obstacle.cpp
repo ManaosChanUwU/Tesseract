@@ -34,8 +34,8 @@ namespace tesseract::entities
 
 	void ResetPos(Obstacle& obstacle)
 	{
-		int maxY = static_cast<int>(GetScreenHeight() - obstacle.size.y);
-		int minY = static_cast<int>(GetScreenHeight());
+		int minY = static_cast<int>(GetScreenHeight() - obstacle.size.y);
+		int maxY = static_cast<int>(GetScreenHeight());
 		
 		obstacle.pos.y = static_cast<float>(GetRandomValue(minY, maxY));
 		obstacle.pos.x = static_cast<float>(GetScreenWidth());
