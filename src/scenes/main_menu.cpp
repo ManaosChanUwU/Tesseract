@@ -3,6 +3,7 @@
 #include "engine/button.h"
 #include "scenes/scene_manager.h"
 #include "gameplay.h"
+#include "engine/sound.h"
 
 namespace tesseract::scenes
 {
@@ -25,6 +26,9 @@ namespace tesseract::scenes
 
 	void InitMainMenu()
 	{
+		
+		playMainMenuMusic();
+
 		float screenWidth = static_cast<float>(GetScreenWidth());
 		float screenHeight = static_cast<float>(GetScreenHeight());
 
@@ -50,6 +54,8 @@ namespace tesseract::scenes
 
 	void UpdateMainMenu()
 	{
+		
+
 		if (engine::IsButtonClicked(playButton))
 		{
 			SetTwoPlayers(false);

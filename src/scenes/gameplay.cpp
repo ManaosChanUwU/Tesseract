@@ -3,6 +3,7 @@
 #include "entities/obstacle.h"
 #include "entities/background.h"
 #include "engine/physics.h"
+#include "engine/sound.h"
 #include "scene_manager.h"
 
 namespace tesseract::scenes
@@ -48,11 +49,14 @@ namespace tesseract::scenes
 
 			if (engine::CollisionRecRec(P1.pos, P1.size, Obs.pos, Obs.size) || P1.pos.y - P1.size.y > GetScreenHeight())
 			{
+				playColitionSound();
 				isGameOver = true;
 			}
 			if (engine::CollisionRecRec(P1.pos, P1.size, Obs.topPos, Obs.size) || P1.pos.y - P1.size.y > GetScreenHeight())
 			{
 				isGameOver = true;
+				playColitionSound();
+
 			}
 			if (twoPlayers)
 			{

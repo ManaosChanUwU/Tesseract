@@ -67,6 +67,9 @@
     <ClCompile Include="src\scenes\tutorials.cpp">
       <Filter>Archivos de origen\scenes</Filter>
     </ClCompile>
+    <ClCompile Include="src\engine\sound.cpp">
+      <Filter>Archivos de origen\engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\game.h">
@@ -101,6 +104,9 @@
     </ClInclude>
     <ClInclude Include="src\scenes\tutorials.h">
       <Filter>Archivos de encabezado\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\sound.h">
+      <Filter>Archivos de encabezado\engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

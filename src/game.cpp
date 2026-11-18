@@ -11,14 +11,13 @@ namespace tesseract
 	void Run()
 	{		
 		InitGame();
-
 		while (!WindowShouldClose() && !scenes::ShouldExit())
 		{
 			UpdateGame();
 
 			DrawGame();
 		}
-
+		CloseAudioDevice();
 		CloseWindow();
 	}
 
@@ -26,6 +25,7 @@ namespace tesseract
 	{
 		static Vector2 screenSize = { 1280, 720 };
 		InitWindow(static_cast<int>(screenSize.x), static_cast<int>(screenSize.y), "TESSERACT");
+		InitAudioDevice();
 		SetExitKey(KEY_NULL);
 
 		SetTargetFPS(60);
