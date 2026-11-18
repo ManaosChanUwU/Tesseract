@@ -60,13 +60,15 @@ namespace tesseract::scenes
 		//TODO cambiar tipografia
 		if (engine::IsButtonClicked(playButton))
 		{
-			engine::PlayButtonSound();
+			engine::PlayEnterGameplaySound();
+			engine::PlayGameplayMusic();
 			SetTwoPlayers(false);
 			ChangeScene(Game);
 		}
 		else if (engine::IsButtonClicked(twoPlayersButton))
 		{
-			engine::PlayButtonSound();
+			engine::PlayEnterGameplaySound();
+			engine::PlayGameplayMusic();
 			SetTwoPlayers(true);
 			ChangeScene(Game);
 		}

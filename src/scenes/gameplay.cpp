@@ -29,7 +29,6 @@ namespace tesseract::scenes
 		entities::InitShip(P1,screenHeigth* 0.3f,"res/ship.png");
 		entities::InitObstacle(Obs);
 		entities::InitBackground();
-		engine::PlayGameplayMusic();
 		if (twoPlayers)
 		{
 			entities::InitShip(P2, screenHeigth*0.4f, "res/ship2.png");
@@ -75,7 +74,14 @@ namespace tesseract::scenes
 		else
 		{
 			if (IsKeyPressed(KEY_ENTER))
-				InitGameplay();//TODO como que el audio se pausa hasta que se apreta esto
+			{
+				entities::UnloadShipTexture(P1);
+				if (twoPlayers)
+				{
+					entities::UnloadShipTexture(P2);
+				}
+				InitGameplay();
+			}
 		}
 
 		if (IsKeyDown(KEY_ESCAPE))
@@ -86,7 +92,7 @@ namespace tesseract::scenes
 
 	void DrawGameplay()
 	{
-		entities::DrawBackground();
+		entities::DrawBackground();//TODO borrar textura de la nave
 		entities::DrawShip(P1);
 		if (twoPlayers)
 		{
