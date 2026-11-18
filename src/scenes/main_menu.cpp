@@ -27,7 +27,7 @@ namespace tesseract::scenes
 	void InitMainMenu()
 	{
 		
-		playMainMenuMusic();
+		engine::PlayMenuMusic();
 
 		float screenWidth = static_cast<float>(GetScreenWidth());
 		float screenHeight = static_cast<float>(GetScreenHeight());
@@ -55,23 +55,36 @@ namespace tesseract::scenes
 	void UpdateMainMenu()
 	{
 		
-
+		//TODO agregar fondo al menu, usar las torres de el gameplay original, no las cambiadas
+		//TODO cambiar la estetica de los botones
+		//TODO cambiar tipografia
 		if (engine::IsButtonClicked(playButton))
 		{
+			engine::PlayButtonSound();
 			SetTwoPlayers(false);
 			ChangeScene(Game);
 		}
 		else if (engine::IsButtonClicked(twoPlayersButton))
 		{
+			engine::PlayButtonSound();
 			SetTwoPlayers(true);
 			ChangeScene(Game);
 		}
 		else if (engine::IsButtonClicked(tutorial))
+		{
+			engine::PlayButtonSound();
 			ChangeScene(Tutorial);
+		}
 		else if (engine::IsButtonClicked(creditsButton))
+		{
+			engine::PlayButtonSound();
 			ChangeScene(Credits);
+		}
 		else if (engine::IsButtonClicked(exitButton))
+		{
+			engine::PlayButtonSound();
 			ChangeScene(Exit);
+		}
 	}
 
 	void DrawMainMenu()

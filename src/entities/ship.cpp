@@ -1,5 +1,6 @@
 #include "ship.h"
 #include "engine/physics.h"
+#include "engine/sound.h"
 
 namespace tesseract::entities
 {
@@ -25,6 +26,7 @@ namespace tesseract::entities
 		if (IsKeyPressed(jumpKey))
 		{
 			Player.velocity = -Player.jumpPower;
+			engine::PlayJumpP1Sound();
 		}
 
 		Player.pos.y += Player.velocity * GetFrameTime();

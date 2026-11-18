@@ -1,5 +1,18 @@
 #pragma once
 
+namespace tesseract::engine
+{
+	void InitAudio();
+	void UpdateAudio();
 
-void playMainMenuMusic();
-void playColitionSound();
+	void PlayMenuMusic();
+	void PlayGameplayMusic();
+
+	void PlayJumpP1Sound();
+	void PlayJumpP2Sound();
+	void PlaycolitionSound();
+	void PlayButtonSound();
+	void PlayObstaclePassSound();
+
+	void UnloadAudio();
+}

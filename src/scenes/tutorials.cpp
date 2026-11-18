@@ -2,6 +2,7 @@
 #include "tutorials.h"
 #include "engine/button.h"
 #include "scenes/scene_manager.h"
+#include "engine/sound.h"
 
 namespace tesseract::scenes
 {
@@ -35,7 +36,10 @@ namespace tesseract::scenes
 	void UpdateTutorial()
 	{
 		if (engine::IsButtonClicked(backButton))
+		{
+			engine::PlayButtonSound();
 			ChangeScene(Menu);
+		}
 	}
 
 	void DrawTutorial()

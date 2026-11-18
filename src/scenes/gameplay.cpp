@@ -3,8 +3,8 @@
 #include "entities/obstacle.h"
 #include "entities/background.h"
 #include "engine/physics.h"
-#include "engine/sound.h"
 #include "scene_manager.h"
+#include "engine/sound.h"
 
 namespace tesseract::scenes
 {
@@ -29,6 +29,7 @@ namespace tesseract::scenes
 		entities::InitShip(P1,screenHeigth* 0.3f,"res/ship.png");
 		entities::InitObstacle(Obs);
 		entities::InitBackground();
+		engine::PlayGameplayMusic();
 		if (twoPlayers)
 		{
 			entities::InitShip(P2, screenHeigth*0.4f, "res/ship2.png");
@@ -49,31 +50,32 @@ namespace tesseract::scenes
 
 			if (engine::CollisionRecRec(P1.pos, P1.size, Obs.pos, Obs.size) || P1.pos.y - P1.size.y > GetScreenHeight())
 			{
-				playColitionSound();
 				isGameOver = true;
+				engine::PlaycolitionSound();
 			}
 			if (engine::CollisionRecRec(P1.pos, P1.size, Obs.topPos, Obs.size) || P1.pos.y - P1.size.y > GetScreenHeight())
 			{
 				isGameOver = true;
-				playColitionSound();
-
+				engine::PlaycolitionSound();
 			}
 			if (twoPlayers)
 			{
 				if (engine::CollisionRecRec(P2.pos, P2.size, Obs.pos, Obs.size) || P2.pos.y - P2.size.y > GetScreenHeight())
 				{
 					isGameOver = true;
+					engine::PlaycolitionSound();
 				}
 				if (engine::CollisionRecRec(P2.pos, P2.size, Obs.topPos, Obs.size) || P2.pos.y - P2.size.y > GetScreenHeight())
 				{
 					isGameOver = true;
+					engine::PlaycolitionSound();
 				}
 			}
 		}
 		else
 		{
 			if (IsKeyPressed(KEY_ENTER))
-				InitGameplay();
+				InitGameplay();//TODO como que el audio se pausa hasta que se apreta esto
 		}
 
 		if (IsKeyDown(KEY_ESCAPE))

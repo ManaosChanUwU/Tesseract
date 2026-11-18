@@ -1,6 +1,7 @@
 #include "game.h"
 #include <raylib.h>
 #include "scenes/scene_manager.h"
+#include "engine/sound.h"
 
 namespace tesseract
 {
@@ -17,6 +18,7 @@ namespace tesseract
 
 			DrawGame();
 		}
+		engine::UnloadAudio();
 		CloseAudioDevice();
 		CloseWindow();
 	}
@@ -26,6 +28,8 @@ namespace tesseract
 		static Vector2 screenSize = { 1280, 720 };
 		InitWindow(static_cast<int>(screenSize.x), static_cast<int>(screenSize.y), "TESSERACT");
 		InitAudioDevice();
+		engine::InitAudio();
+		//Primero crea la ventana, despues inicia el dispositivo de audio y despues carga los sonidoslmao
 		SetExitKey(KEY_NULL);
 
 		SetTargetFPS(60);
@@ -36,6 +40,7 @@ namespace tesseract
 	void UpdateGame()
 	{
 		scenes::UpdateScene();
+		engine::UpdateAudio();
 	}
 
 	void DrawGame()

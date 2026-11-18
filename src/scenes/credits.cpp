@@ -2,6 +2,7 @@
 #include "credits.h"
 #include "engine/button.h"
 #include "scenes/scene_manager.h"
+#include "engine/sound.h"
 
 namespace tesseract::scenes
 {
@@ -13,6 +14,7 @@ namespace tesseract::scenes
 	static const Color buttonTextColor = WHITE;
 	static const char* creditsText = "Game programed and created by: Ivan Abraham";
 	static const char* creditsTextMe = "Forked by ManaosChan";
+	//TODO agregar la ia que hizo la musica, google flow creo que era
 	static const char* verText = "v0.4";
 	static const int verFontSize = 20;
 	static const int verPadding = 10;
@@ -35,7 +37,10 @@ namespace tesseract::scenes
 	void UpdateCredits()
 	{
 		if (engine::IsButtonClicked(backButton))
+		{
+			engine::PlayButtonSound();
 			ChangeScene(Menu);
+		}
 	}
 
 	void DrawCredits()
