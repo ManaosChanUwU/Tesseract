@@ -16,12 +16,12 @@ namespace tesseract::engine
 	void InitAudio()
 	{
 		menuMusic = LoadMusicStream("res/menuSong.mp3");
-		SetMusicVolume(menuMusic, 0.5);
-		gameplayMusic = LoadMusicStream("res/inGameSong.wav");
+		SetMusicVolume(menuMusic, 1.0);
+		gameplayMusic = LoadMusicStream("res/inGameSong.ogg");
 		SetMusicVolume(gameplayMusic, 0.5);
 
 		jumpP1Fx = LoadSound("res/jump.wav");
-		SetSoundVolume(jumpP1Fx, 0.5);
+		SetSoundVolume(jumpP1Fx, 0.2f);
 		EnterGameplayFx = LoadSound("res/enterGameplay.wav");
 		SetSoundVolume(EnterGameplayFx, 0.5);
 		collisionFx = LoadSound("res/collision.wav");
@@ -60,6 +60,7 @@ namespace tesseract::engine
 
 	void PlayEnterGameplaySound()
 	{
+
 		PlaySound(EnterGameplayFx);
 	}
 
