@@ -50,24 +50,24 @@ namespace tesseract::scenes
 			if (engine::CollisionRecRec(P1.pos, P1.size, Obs.pos, Obs.size) || P1.pos.y - P1.size.y > GetScreenHeight())
 			{
 				isGameOver = true;
-				engine::PlaycolitionSound();
+				engine::PlaycollisionSound();
 			}
 			if (engine::CollisionRecRec(P1.pos, P1.size, Obs.topPos, Obs.size) || P1.pos.y - P1.size.y > GetScreenHeight())
 			{
 				isGameOver = true;
-				engine::PlaycolitionSound();
+				engine::PlaycollisionSound();
 			}
 			if (twoPlayers)
 			{
 				if (engine::CollisionRecRec(P2.pos, P2.size, Obs.pos, Obs.size) || P2.pos.y - P2.size.y > GetScreenHeight())
 				{
 					isGameOver = true;
-					engine::PlaycolitionSound();
+					engine::PlaycollisionSound();
 				}
 				if (engine::CollisionRecRec(P2.pos, P2.size, Obs.topPos, Obs.size) || P2.pos.y - P2.size.y > GetScreenHeight())
 				{
 					isGameOver = true;
-					engine::PlaycolitionSound();
+					engine::PlaycollisionSound();
 				}
 			}
 		}

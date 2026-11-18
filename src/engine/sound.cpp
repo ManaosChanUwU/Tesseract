@@ -9,7 +9,7 @@ namespace tesseract::engine
 
 	Sound jumpP1Fx;
 	Sound EnterGameplayFx;
-	Sound colitionFx;
+	Sound collisionFx;
 	Sound buttonFx;
 	Sound obstaclePassFx;
 
@@ -24,8 +24,8 @@ namespace tesseract::engine
 		SetSoundVolume(jumpP1Fx, 0.5);
 		EnterGameplayFx = LoadSound("res/enterGameplay.wav");
 		SetSoundVolume(EnterGameplayFx, 0.5);
-		colitionFx = LoadSound("res/colition.wav");
-		SetSoundVolume(colitionFx, 0.5);
+		collisionFx = LoadSound("res/collision.wav");
+		SetSoundVolume(collisionFx, 0.5);
 		buttonFx = LoadSound("res/button.wav");
 		SetSoundVolume(buttonFx, 0.5);
 		obstaclePassFx = LoadSound("res/obstaclePass.wav");
@@ -63,9 +63,9 @@ namespace tesseract::engine
 		PlaySound(EnterGameplayFx);
 	}
 
-	void PlaycolitionSound()
+	void PlaycollisionSound()
 	{
-		PlaySound(colitionFx);
+		PlaySound(collisionFx);
 	}
 
 	void PlayButtonSound()
@@ -88,7 +88,7 @@ namespace tesseract::engine
 
 		UnloadSound(jumpP1Fx);
 		UnloadSound(EnterGameplayFx);
-		UnloadSound(colitionFx);
+		UnloadSound(collisionFx);
 		UnloadSound(buttonFx);
 		UnloadSound(obstaclePassFx);
 	}

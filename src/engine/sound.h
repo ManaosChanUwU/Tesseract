@@ -10,7 +10,7 @@ namespace tesseract::engine
 
 	void PlayJumpP1Sound();
 	void PlayEnterGameplaySound();
-	void PlaycolitionSound();
+	void PlaycollisionSound();
 	void PlayButtonSound();
 	void PlayObstaclePassSound();
 
