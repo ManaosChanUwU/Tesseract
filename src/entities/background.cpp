@@ -43,19 +43,19 @@ namespace tesseract::entities
 		float screenWidth = static_cast<float>(GetScreenWidth());
 		float screenHeight = static_cast<float>(GetScreenHeight());
 
-		background.layers[CloseLayer].color = WHITE;
+		background.layers[CloseLayer].color = SKYBLUE;
 		background.layers[CloseLayer].size = { screenWidth / closeWidthRatio, screenHeight / closeHeightRatio };
 		background.layers[CloseLayer].pos = { -screenWidth / closeOffsetRatio, screenHeight - background.layers[CloseLayer].size.y };
 		background.layers[CloseLayer].spacing = screenWidth / closeSpacingRatio;
 		background.layers[CloseLayer].speed = closeSpeed;
 
-		background.layers[MidLayer].color = WHITE;
+		background.layers[MidLayer].color = BLUE;
 		background.layers[MidLayer].size = { screenWidth / midWidthRatio, screenHeight / midHeightRatio };
 		background.layers[MidLayer].pos = { -screenWidth / midOffsetRatio, screenHeight - background.layers[MidLayer].size.y };
 		background.layers[MidLayer].spacing = screenWidth / midSpacingRatio;
 		background.layers[MidLayer].speed = midSpeed;
 
-		background.layers[FarLayer].color = WHITE;
+		background.layers[FarLayer].color = DARKBLUE;
 		background.layers[FarLayer].size = { screenWidth / farWidthRatio, screenHeight / farHeightRatio };
 		background.layers[FarLayer].pos = { 0.0f, screenHeight - background.layers[FarLayer].size.y };
 		background.layers[FarLayer].spacing = screenWidth / farSpacingRatio;
