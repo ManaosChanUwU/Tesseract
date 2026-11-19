@@ -37,8 +37,6 @@ namespace tesseract
 		//Primero crea la ventana, despues inicia el dispositivo de audio y despues carga los sonidoslmao
 		SetExitKey(KEY_NULL);
 
-		SetTargetFPS(60);
-
 		scenes::ChangeScene(scenes::Menu);
 	}
 

@@ -67,3 +67,5 @@ The executables for each version are available in the
 **Fork and further development:** ManaosChanUwU
 ([GitHub](https://github.com/ManaosChanUwU))\
 **Music:** Created with Google Flow Music, an AI music generation tool.
+**Fonts:** ([MainFont](https://www.dafont.com/metal-gear-solid.font))\
+**Fonts:** ([SecondaryFont](https://www.dafont.com/dune-rise.font?back=theme))\
