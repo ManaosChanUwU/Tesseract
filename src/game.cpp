@@ -3,6 +3,7 @@
 #include "scenes/scene_manager.h"
 #include "engine/sound.h"
 #include "engine/fonts.h"
+#include "engine/color.h"
 
 
 namespace tesseract
@@ -51,7 +52,7 @@ namespace tesseract
 	{
 		BeginDrawing();
 		
-		ClearBackground(BLACK);
+		ClearBackground(mainBackgroundColor);
 
 		scenes::DrawScene();
 

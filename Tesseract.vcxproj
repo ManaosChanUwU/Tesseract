@@ -36,6 +36,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\engine\button.h" />
+    <ClInclude Include="src\engine\color.h" />
     <ClInclude Include="src\engine\fonts.h" />
     <ClInclude Include="src\engine\physics.h" />
     <ClInclude Include="src\engine\sound.h" />

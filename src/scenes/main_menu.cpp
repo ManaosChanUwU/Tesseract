@@ -6,6 +6,7 @@
 #include "engine/sound.h"
 #include "entities/background.h"
 #include "engine/fonts.h"
+#include "engine/color.h"
 
 namespace tesseract::scenes
 {
@@ -106,7 +107,7 @@ namespace tesseract::scenes
 		
 
 		entities::DrawBackground();
-		DrawTextEx(engine::mainFont, title, titleXY, titleFontSize, 5, PURPLE);
+		DrawTextEx(engine::mainFont, title, titleXY, titleFontSize, 5,mainStuffColor );
 		engine::DrawButton(playButton);
 		engine::DrawButton(twoPlayersButton);
 		engine::DrawButton(tutorial);
@@ -115,6 +116,6 @@ namespace tesseract::scenes
 
 		static const int verWidth = MeasureText(verText, verFontSize);
 
-		DrawTextEx(engine::secondFont, verText, {verPadding, verPadding }, verFontSize,0, RED);
+		DrawTextEx(engine::secondFont, verText, {verPadding, verPadding }, verFontSize,0, normalTextColor);
 	}
 }

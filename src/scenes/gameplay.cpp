@@ -6,6 +6,7 @@
 #include "scene_manager.h"
 #include "engine/sound.h"
 #include "engine/fonts.h"
+#include "engine/color.h"
 
 namespace tesseract::scenes
 {
@@ -18,7 +19,8 @@ namespace tesseract::scenes
 	static const char* loseMessage = "GAME OVER - Press enter to retry.\nPress ESC to go back to the menu.";
 	static const char* playerOneWin = "Gano el jugador 1 - Press enter to retry.\nPress ESC to go back to the menu.\n";
 	static const char* playerTwoWin = "Gano el jugador 2 - Press enter to retry.\nPress ESC to go back to the menu.\n";
-
+	static const char* tieMessage = "EMPATE - Ambos jugadores perdieron.\nPress enter to retry.\nPress ESC to go back to the menu.";
+	static const char* gameOverMessage;
 
 	void SetTwoPlayers(bool enable)
 	{
@@ -59,28 +61,44 @@ namespace tesseract::scenes
 			}
 
 
+			bool playerOneLost =
+				engine::CollisionRecRec(P1.pos, P1.size, Obs.pos, Obs.size) ||
+				engine::CollisionRecRec(P1.pos, P1.size, Obs.topPos, Obs.size) ||
+				P1.pos.y - P1.size.y > GetScreenHeight();
 
-			if (engine::CollisionRecRec(P1.pos, P1.size, Obs.pos, Obs.size) || P1.pos.y - P1.size.y > GetScreenHeight())
-			{
-				isGameOver = true;
-				engine::PlaycollisionSound();
-			}
-			if (engine::CollisionRecRec(P1.pos, P1.size, Obs.topPos, Obs.size) || P1.pos.y - P1.size.y > GetScreenHeight())
-			{
-				isGameOver = true;
-				engine::PlaycollisionSound();
-			}
+			bool playerTwoLost = false;
+
 			if (twoPlayers)
 			{
-				if (engine::CollisionRecRec(P2.pos, P2.size, Obs.pos, Obs.size) || P2.pos.y - P2.size.y > GetScreenHeight())
+				playerTwoLost =
+					engine::CollisionRecRec(P2.pos, P2.size, Obs.pos, Obs.size) ||
+					engine::CollisionRecRec(P2.pos, P2.size, Obs.topPos, Obs.size) ||
+					P2.pos.y - P2.size.y > GetScreenHeight();
+			}
+
+			if (playerOneLost || playerTwoLost)
+			{
+				isGameOver = true;
+				engine::PlaycollisionSound();
+
+				if (twoPlayers)
 				{
-					isGameOver = true;
-					engine::PlaycollisionSound();
+					if (playerOneLost && playerTwoLost)
+					{
+						gameOverMessage = tieMessage;
+					}
+					else if (playerOneLost)
+					{
+						gameOverMessage = playerTwoWin;
+					}
+					else
+					{
+						gameOverMessage = playerOneWin;
+					}
 				}
-				if (engine::CollisionRecRec(P2.pos, P2.size, Obs.topPos, Obs.size) || P2.pos.y - P2.size.y > GetScreenHeight())
+				else
 				{
-					isGameOver = true;
-					engine::PlaycollisionSound();
+					gameOverMessage = loseMessage;
 				}
 			}
 		}
@@ -112,15 +130,15 @@ namespace tesseract::scenes
 			entities::DrawShip(P2);
 		}
 		entities::DrawObstacle(Obs);
-		DrawTextEx(engine::secondFont, TextFormat("POINTS: %i", P1.points), { 10, 10 } , 48, 0, RED);
+		DrawTextEx(engine::secondFont, TextFormat("POINTS: %i", P1.points), { 10, 10 } , 48, 0, mainStuffColor);
 
 		if (isGameOver)
 		{
 			static float gameOverLength = MeasureTextEx(engine::secondFont,loseMessage, static_cast<float>(fontSize), 0.0f).x;
-			static float x = static_cast<float>(GetScreenWidth() - gameOverLength) / 2;
+			static float x = static_cast<float>(GetScreenWidth() - gameOverLength) / 3;
 			static float y = static_cast<float>(GetScreenHeight() - fontSize) / 2;
 
-			DrawTextEx(engine::secondFont, loseMessage, { x, y }, fontSize,0, RED);
+			DrawTextEx(engine::secondFont, gameOverMessage, { x, y }, fontSize, 0, gameOverColor);
 		}
 	}
 

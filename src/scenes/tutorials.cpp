@@ -4,6 +4,7 @@
 #include "scenes/scene_manager.h"
 #include "engine/sound.h"
 #include "engine/fonts.h"
+#include "engine/color.h"
 
 namespace tesseract::scenes
 {
@@ -11,8 +12,8 @@ namespace tesseract::scenes
 	static const float buttonHeightRatio = 12.0f;
 	static const float buttonSpacingRatio = 36.0f;
 	static const float buttonFontRatio = 24.0f;
-	static const Color buttonColor = DARKGRAY;
-	static const Color buttonTextColor = WHITE;
+	static const Color buttonColor = buttonsColor;
+	static const Color buttonTextColor = normalTextColor;
 	static const char* tutorialTextOnePlayer = "Player one = SPACEBAR to jump\n\nPlayer two = UP ARROW to jump";
 	static const char* verText = "v1.0";
 	static const int verFontSize = 20;
@@ -53,9 +54,9 @@ namespace tesseract::scenes
 		float creditsX = (GetScreenWidth() - tutorialWidth) / 2;
 		float creditsY = (GetScreenHeight() - tutorialFontSize) / 2;
 
-		DrawTextEx(engine::secondFont, tutorialTextOnePlayer, { creditsX,creditsY }, tutorialFontSize, 5, SKYBLUE);
+		DrawTextEx(engine::secondFont, tutorialTextOnePlayer, { creditsX,creditsY }, tutorialFontSize, 5, normalTextColor);
 		creditsY += (tutorialFontSize);
-		DrawTextEx(engine::secondFont, verText, { verPadding,verPadding }, verFontSize, 5, SKYBLUE);
+		DrawTextEx(engine::secondFont, verText, { verPadding,verPadding }, verFontSize, 0, normalTextColor);
 
 	}
 }

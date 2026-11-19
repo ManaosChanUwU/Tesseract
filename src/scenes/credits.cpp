@@ -4,6 +4,7 @@
 #include "scenes/scene_manager.h"
 #include "engine/sound.h"
 #include "engine/fonts.h"
+#include "engine/color.h"
 
 namespace tesseract::scenes
 {
@@ -11,8 +12,8 @@ namespace tesseract::scenes
 	static const float buttonHeightRatio = 12.0f;
 	static const float buttonSpacingRatio = 36.0f;
 	static const float buttonFontRatio = 24.0f;
-	static const Color buttonColor = DARKGRAY;
-	static const Color buttonTextColor = WHITE;
+	static const Color buttonColor = buttonsColor;
+	static const Color buttonTextColor = normalTextColor;
 	static const char* creditsText = "Game created by: Ivan Abraham\n\nForked by ManaosChan\n\nMusic by Google Flow Music";
 	//TODO agregar la ia que hizo la musica, google flow creo que era
 	static const char* verText = "v1.0";
@@ -56,8 +57,8 @@ namespace tesseract::scenes
 		float creditsX = (GetScreenWidth() - creditsWidth) / 2;
 		float creditsY = (GetScreenHeight() - creditsFontSize) / 2;
 
-		DrawTextEx(engine::secondFont, creditsText, { creditsX,creditsY }, creditsFontSize, 0, WHITE);
-		DrawTextEx(engine::secondFont, verText, { verPadding, verPadding }, verFontSize, 5, SKYBLUE);
+		DrawTextEx(engine::secondFont, creditsText,{creditsX,creditsY},creditsFontSize,0, normalTextColor);
+		DrawTextEx(engine::secondFont, verText, { verPadding, verPadding }, verFontSize, 0, normalTextColor);
 
 	}
 }
