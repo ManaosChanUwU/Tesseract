@@ -14,7 +14,7 @@ namespace tesseract::scenes
 	static const Color buttonColor = DARKGRAY;
 	static const Color buttonTextColor = WHITE;
 	static const char* tutorialTextOnePlayer = "Player one = SPACEBAR to jump\n\nPlayer two = UP ARROW to jump";
-	static const char* verText = "v0.4";
+	static const char* verText = "v1.0";
 	static const int verFontSize = 20;
 	static const int verPadding = 10;
 
@@ -55,7 +55,7 @@ namespace tesseract::scenes
 
 		DrawTextEx(engine::secondFont, tutorialTextOnePlayer, { creditsX,creditsY }, tutorialFontSize, 5, SKYBLUE);
 		creditsY += (tutorialFontSize);
-		DrawTextEx(engine::secondFont, verText, { static_cast<float>(GetScreenWidth() - verWidth - verPadding),verPadding }, verFontSize, 5, SKYBLUE);
+		DrawTextEx(engine::secondFont, verText, { verPadding,verPadding }, verFontSize, 5, SKYBLUE);
 
 	}
 }

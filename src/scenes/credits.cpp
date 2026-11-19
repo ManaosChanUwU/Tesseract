@@ -13,9 +13,9 @@ namespace tesseract::scenes
 	static const float buttonFontRatio = 24.0f;
 	static const Color buttonColor = DARKGRAY;
 	static const Color buttonTextColor = WHITE;
-	static const char* creditsText = "Gamecreated by: Ivan Abraham\n\nForked by ManaosChan\n\nMusic by Google Flow Music";
+	static const char* creditsText = "Game created by: Ivan Abraham\n\nForked by ManaosChan\n\nMusic by Google Flow Music";
 	//TODO agregar la ia que hizo la musica, google flow creo que era
-	static const char* verText = "v0.4";
+	static const char* verText = "v1.0";
 	static const float verFontSize = 20;
 	static const float verPadding = 10;
 
@@ -56,7 +56,8 @@ namespace tesseract::scenes
 		float creditsX = (GetScreenWidth() - creditsWidth) / 2;
 		float creditsY = (GetScreenHeight() - creditsFontSize) / 2;
 
-		DrawTextEx(engine::secondFont, creditsText, { creditsX, creditsY }, static_cast<float>(creditsFontSize), 0, WHITE);
-		DrawTextEx(engine::secondFont, verText, { GetScreenWidth() - verWidth - verPadding, static_cast<float>(verPadding) }, static_cast<float>(verFontSize), 0, RED);
+		DrawTextEx(engine::secondFont, creditsText, { creditsX,creditsY }, creditsFontSize, 0, WHITE);
+		DrawTextEx(engine::secondFont, verText, { verPadding, verPadding }, verFontSize, 5, SKYBLUE);
+
 	}
 }

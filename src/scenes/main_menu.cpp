@@ -16,7 +16,7 @@ namespace tesseract::scenes
 	static const Color buttonColor = DARKGRAY;
 	static const Color buttonTextColor = WHITE;
 
-	static const char* verText = "v0.4";
+	static const char* verText = "v1.0";
 	static const int verFontSize = 20;
 	static const int verPadding = 10;
 
@@ -103,10 +103,10 @@ namespace tesseract::scenes
 		float titleX = (GetScreenWidth() - titleWidth) / 2.0f;
 		float titleY = (GetScreenHeight() * 0.1f);
 		Vector2 titleXY = { titleX,titleY };
-		DrawTextEx(engine::mainFont, title, titleXY, titleFontSize, 5, PURPLE);
 		
 
 		entities::DrawBackground();
+		DrawTextEx(engine::mainFont, title, titleXY, titleFontSize, 5, PURPLE);
 		engine::DrawButton(playButton);
 		engine::DrawButton(twoPlayersButton);
 		engine::DrawButton(tutorial);
@@ -115,6 +115,6 @@ namespace tesseract::scenes
 
 		static const int verWidth = MeasureText(verText, verFontSize);
 
-		DrawText(verText, GetScreenWidth() - verWidth - verPadding, verPadding, verFontSize, RED);
+		DrawTextEx(engine::secondFont, verText, {verPadding, verPadding }, verFontSize,0, RED);
 	}
 }

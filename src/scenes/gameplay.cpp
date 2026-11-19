@@ -15,7 +15,10 @@ namespace tesseract::scenes
 	static bool isGameOver;
 	static bool twoPlayers = false;
 	static const int fontSize = 30;
-	static const char* loseMessage = "GAME OVER - Press enter to retry.\nPress ESC to go back to the menu.\nYour points: ";//TODO ver como poner los puntos aca
+	static const char* loseMessage = "GAME OVER - Press enter to retry.\nPress ESC to go back to the menu.";
+	static const char* playerOneWin = "Gano el jugador 1 - Press enter to retry.\nPress ESC to go back to the menu.\n";
+	static const char* playerTwoWin = "Gano el jugador 2 - Press enter to retry.\nPress ESC to go back to the menu.\n";
+
 
 	void SetTwoPlayers(bool enable)
 	{
@@ -109,11 +112,11 @@ namespace tesseract::scenes
 			entities::DrawShip(P2);
 		}
 		entities::DrawObstacle(Obs);
-		DrawTextEx(engine::mainFont, TextFormat("POINTS: %i", P1.points), { 10, 10 } , 48, 0, RED);
+		DrawTextEx(engine::secondFont, TextFormat("POINTS: %i", P1.points), { 10, 10 } , 48, 0, RED);
 
 		if (isGameOver)
 		{
-			static float gameOverLength = MeasureTextEx(engine::secondFont,loseMessage, static_cast<float>(fontSize),0.0f).x;
+			static float gameOverLength = MeasureTextEx(engine::secondFont,loseMessage, static_cast<float>(fontSize), 0.0f).x;
 			static float x = static_cast<float>(GetScreenWidth() - gameOverLength) / 2;
 			static float y = static_cast<float>(GetScreenHeight() - fontSize) / 2;
 
