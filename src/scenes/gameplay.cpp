@@ -137,6 +137,7 @@ namespace tesseract::scenes
 
 		if (IsKeyDown(KEY_ESCAPE))
 		{
+			entities::UnloadObstacle(Obs);
 			ChangeScene(Menu);
 		}
 	}

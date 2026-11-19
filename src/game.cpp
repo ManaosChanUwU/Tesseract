@@ -4,6 +4,7 @@
 #include "engine/sound.h"
 #include "engine/fonts.h"
 #include "engine/color.h"
+#include "entities/obstacle.h"
 
 
 namespace tesseract

@@ -11,9 +11,14 @@ namespace tesseract::entities
 		float speed;
 		float gap;
 		bool gotPoints;
+
+		Texture2D obstacleTexture;
+		Texture2D obstacleTopTexture;
 	};
 
 	void InitObstacle(Obstacle& obstacle);
 	void UpdateObstacle(Obstacle& obstacle);
 	void DrawObstacle(Obstacle& obstacle);
+	void UnloadObstacle(Obstacle& obstacle);
+
 }

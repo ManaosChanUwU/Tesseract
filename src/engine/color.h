@@ -9,3 +9,4 @@
 #define farBuildings CLITERAL(Color){23,17,47,255}
 #define midBuildings CLITERAL(Color){41,23,70,255}
 #define closeBuildings CLITERAL(Color){72,32,94,255}
+#define obstacleBuildings CLITERAL(Color){139,92,92,255}
