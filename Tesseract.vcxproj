@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\engine\button.cpp" />
+    <ClCompile Include="src\engine\fonts.cpp" />
     <ClCompile Include="src\engine\physics.cpp" />
     <ClCompile Include="src\engine\sound.cpp" />
     <ClCompile Include="src\entities\background.cpp" />
@@ -35,6 +36,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\engine\button.h" />
+    <ClInclude Include="src\engine\fonts.h" />
     <ClInclude Include="src\engine\physics.h" />
     <ClInclude Include="src\engine\sound.h" />
     <ClInclude Include="src\entities\background.h" />

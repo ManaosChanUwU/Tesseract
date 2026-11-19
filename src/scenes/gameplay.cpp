@@ -5,6 +5,7 @@
 #include "engine/physics.h"
 #include "scene_manager.h"
 #include "engine/sound.h"
+#include "engine/fonts.h"
 
 namespace tesseract::scenes
 {
@@ -14,7 +15,7 @@ namespace tesseract::scenes
 	static bool isGameOver;
 	static bool twoPlayers = false;
 	static const int fontSize = 30;
-	static const char* loseMessage = "GAME OVER - Press enter to retry.\nPress ESC to go back to the menu.";
+	static const char* loseMessage = "GAME OVER - Press enter to retry.\nPress ESC to go back to the menu.\nYour points: ";//TODO ver como poner los puntos aca
 
 	void SetTwoPlayers(bool enable)
 	{
@@ -26,12 +27,12 @@ namespace tesseract::scenes
 	{
 		isGameOver = false;
 		float screenHeigth = static_cast<float>(GetScreenHeight());
-		entities::InitShip(P1,screenHeigth* 0.3f,"res/ship.png");
+		entities::InitShip(P1, screenHeigth * 0.3f, "res/ship.png");
 		entities::InitObstacle(Obs);
 		entities::InitBackground();
 		if (twoPlayers)
 		{
-			entities::InitShip(P2, screenHeigth*0.4f, "res/ship2.png");
+			entities::InitShip(P2, screenHeigth * 0.4f, "res/ship2.png");
 		}
 	}
 
@@ -46,6 +47,15 @@ namespace tesseract::scenes
 			}
 			entities::UpdateObstacle(Obs);
 			entities::UpdateBackground();
+
+			if ((P1.pos.x + P1.size.x) > Obs.pos.x + Obs.size.x && Obs.gotPoints == true)
+			{
+				Obs.gotPoints = false;
+				P1.points++;
+				engine::PlayObstaclePassSound();
+			}
+
+
 
 			if (engine::CollisionRecRec(P1.pos, P1.size, Obs.pos, Obs.size) || P1.pos.y - P1.size.y > GetScreenHeight())
 			{
@@ -99,15 +109,16 @@ namespace tesseract::scenes
 			entities::DrawShip(P2);
 		}
 		entities::DrawObstacle(Obs);
+		DrawTextEx(engine::mainFont, TextFormat("POINTS: %i", P1.points), { 10, 10 } , 48, 0, RED);
 
 		if (isGameOver)
 		{
-			static int gameOverLength = MeasureText(loseMessage, fontSize);
-			static int x = (GetScreenWidth() - gameOverLength) / 2;
-			static int y = (GetScreenHeight() - fontSize) / 2;
+			static float gameOverLength = MeasureTextEx(engine::secondFont,loseMessage, static_cast<float>(fontSize),0.0f).x;
+			static float x = static_cast<float>(GetScreenWidth() - gameOverLength) / 2;
+			static float y = static_cast<float>(GetScreenHeight() - fontSize) / 2;
 
-			DrawText(loseMessage, x, y, fontSize, RED);
+			DrawTextEx(engine::secondFont, loseMessage, { x, y }, fontSize,0, RED);
 		}
 	}
-	
+
 }

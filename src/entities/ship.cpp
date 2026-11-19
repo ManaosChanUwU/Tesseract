@@ -4,8 +4,8 @@
 
 namespace tesseract::entities
 {
-	static const float defaultJumpPower = 500.0f;
-	static const float defaultGravity = 1300.0f;
+	static const float defaultJumpPower = 300.0f;
+	static const float defaultGravity = 900.0f;
 
 	void InitShip(Ship& Player, float startY, const char* texturePath)
 	{

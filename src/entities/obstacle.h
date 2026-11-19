@@ -10,6 +10,7 @@ namespace tesseract::entities
 		Vector2 topPos;
 		float speed;
 		float gap;
+		bool gotPoints;
 	};
 
 	void InitObstacle(Obstacle& obstacle);

@@ -4,10 +4,12 @@
 #include "scenes/scene_manager.h"
 #include "gameplay.h"
 #include "engine/sound.h"
+#include "entities/background.h"
+#include "engine/fonts.h"
 
 namespace tesseract::scenes
 {
-	static const float buttonWidthRatio = 5.0f;
+	static const float buttonWidthRatio = 3.0f;
 	static const float buttonHeightRatio = 12.0f;
 	static const float buttonSpacingRatio = 36.0f;
 	static const float buttonFontRatio = 24.0f;
@@ -17,6 +19,9 @@ namespace tesseract::scenes
 	static const char* verText = "v0.4";
 	static const int verFontSize = 20;
 	static const int verPadding = 10;
+
+	static const char* title = "tesseract";
+	static const int titleFontSize = 100;
 
 	static engine::Button playButton;
 	static engine::Button twoPlayersButton;
@@ -28,13 +33,15 @@ namespace tesseract::scenes
 	{
 		
 		engine::PlayMenuMusic();
-
+		entities::InitBackground();
 		float screenWidth = static_cast<float>(GetScreenWidth());
 		float screenHeight = static_cast<float>(GetScreenHeight());
 
+		
+
 		Vector2 size = { screenWidth / buttonWidthRatio, screenHeight / buttonHeightRatio };
 		float spacing = screenHeight / buttonSpacingRatio;
-		int fontSize = static_cast<int>(screenHeight / buttonFontRatio);
+		float fontSize = (screenHeight / buttonFontRatio);
 
 		Vector2 pos = { (screenWidth - size.x) / 2, screenHeight / 3 };
 		engine::InitButton(playButton, pos, size, "1 PLAYER", fontSize, buttonColor, buttonTextColor);
@@ -58,6 +65,7 @@ namespace tesseract::scenes
 		//TODO agregar fondo al menu, usar las torres de el gameplay original, no las cambiadas
 		//TODO cambiar la estetica de los botones
 		//TODO cambiar tipografia
+		entities::UpdateBackground();
 		if (engine::IsButtonClicked(playButton))
 		{
 			engine::PlayEnterGameplaySound();
@@ -91,6 +99,14 @@ namespace tesseract::scenes
 
 	void DrawMainMenu()
 	{
+		float titleWidth = MeasureTextEx(engine::mainFont ,title, titleFontSize, 5).x;
+		float titleX = (GetScreenWidth() - titleWidth) / 2.0f;
+		float titleY = (GetScreenHeight() * 0.1f);
+		Vector2 titleXY = { titleX,titleY };
+		DrawTextEx(engine::mainFont, title, titleXY, titleFontSize, 5, PURPLE);
+		
+
+		entities::DrawBackground();
 		engine::DrawButton(playButton);
 		engine::DrawButton(twoPlayersButton);
 		engine::DrawButton(tutorial);

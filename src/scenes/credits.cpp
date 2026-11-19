@@ -3,6 +3,7 @@
 #include "engine/button.h"
 #include "scenes/scene_manager.h"
 #include "engine/sound.h"
+#include "engine/fonts.h"
 
 namespace tesseract::scenes
 {
@@ -12,12 +13,11 @@ namespace tesseract::scenes
 	static const float buttonFontRatio = 24.0f;
 	static const Color buttonColor = DARKGRAY;
 	static const Color buttonTextColor = WHITE;
-	static const char* creditsText = "Game programed and created by: Ivan Abraham";
-	static const char* creditsTextMe = "Forked by ManaosChan";
+	static const char* creditsText = "Gamecreated by: Ivan Abraham\n\nForked by ManaosChan\n\nMusic by Google Flow Music";
 	//TODO agregar la ia que hizo la musica, google flow creo que era
 	static const char* verText = "v0.4";
-	static const int verFontSize = 20;
-	static const int verPadding = 10;
+	static const float verFontSize = 20;
+	static const float verPadding = 10;
 
 	static engine::Button backButton;
 
@@ -28,7 +28,7 @@ namespace tesseract::scenes
 
 		Vector2 size = { screenWidth / buttonWidthRatio, screenHeight / buttonHeightRatio };
 		float spacing = screenHeight / buttonSpacingRatio;
-		int fontSize = static_cast<int>(screenHeight / buttonFontRatio);
+		float fontSize = (screenHeight / buttonFontRatio);
 
 		Vector2 pos = { screenWidth - size.x - spacing, screenHeight - size.y - spacing };
 		engine::InitButton(backButton, pos, size, "BACK", fontSize, buttonColor, buttonTextColor);
@@ -47,17 +47,16 @@ namespace tesseract::scenes
 	{
 		engine::DrawButton(backButton);
 
-		static const int verWidth = MeasureText(verText, verFontSize);
-		static const int creditsFontSize = static_cast<int>(GetScreenHeight() / buttonFontRatio);
-		static const int creditsWidth = MeasureText(creditsText, creditsFontSize);
+		static const float verWidth = MeasureTextEx(engine::secondFont, verText, verFontSize, 0).x;
 
-		int creditsX = (GetScreenWidth() - creditsWidth) / 2;
-		int creditsY = (GetScreenHeight() - creditsFontSize) / 2;
+		static const float creditsFontSize = static_cast<float>(GetScreenHeight() / buttonFontRatio);
 
-		DrawText(creditsText, creditsX, creditsY, creditsFontSize, WHITE);
-		creditsY += (creditsFontSize);
-		DrawText(creditsTextMe, creditsX, creditsY, creditsFontSize, WHITE);
+		static const float creditsWidth = MeasureTextEx(engine::secondFont ,creditsText, static_cast<float>(creditsFontSize),0).x;
 
-		DrawText(verText, GetScreenWidth() - verWidth - verPadding, verPadding, verFontSize, RED);
+		float creditsX = (GetScreenWidth() - creditsWidth) / 2;
+		float creditsY = (GetScreenHeight() - creditsFontSize) / 2;
+
+		DrawTextEx(engine::secondFont, creditsText, { creditsX, creditsY }, static_cast<float>(creditsFontSize), 0, WHITE);
+		DrawTextEx(engine::secondFont, verText, { GetScreenWidth() - verWidth - verPadding, static_cast<float>(verPadding) }, static_cast<float>(verFontSize), 0, RED);
 	}
 }

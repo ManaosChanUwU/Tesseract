@@ -3,6 +3,7 @@
 #include "engine/button.h"
 #include "scenes/scene_manager.h"
 #include "engine/sound.h"
+#include "engine/fonts.h"
 
 namespace tesseract::scenes
 {
@@ -12,8 +13,7 @@ namespace tesseract::scenes
 	static const float buttonFontRatio = 24.0f;
 	static const Color buttonColor = DARKGRAY;
 	static const Color buttonTextColor = WHITE;
-	static const char* tutorialTextOnePlayer = "Player one = SPACEBAR to jump";
-	static const char* tutorialTextTwoPlayers = "Player two = UP ARROW to jump";
+	static const char* tutorialTextOnePlayer = "Player one = SPACEBAR to jump\n\nPlayer two = UP ARROW to jump";
 	static const char* verText = "v0.4";
 	static const int verFontSize = 20;
 	static const int verPadding = 10;
@@ -27,7 +27,7 @@ namespace tesseract::scenes
 
 		Vector2 size = { screenWidth / buttonWidthRatio, screenHeight / buttonHeightRatio };
 		float spacing = screenHeight / buttonSpacingRatio;
-		int fontSize = static_cast<int>(screenHeight / buttonFontRatio);
+		float fontSize = (screenHeight / buttonFontRatio);
 
 		Vector2 pos = { screenWidth - size.x - spacing, screenHeight - size.y - spacing };
 		engine::InitButton(backButton, pos, size, "BACK", fontSize, buttonColor, buttonTextColor);
@@ -46,17 +46,16 @@ namespace tesseract::scenes
 	{
 		engine::DrawButton(backButton);
 
-		static const int verWidth = MeasureText(verText, verFontSize);
-		static const int tutorialFontSize = static_cast<int>(GetScreenHeight() / buttonFontRatio);
-		static const int tutorialWidth = MeasureText(tutorialTextOnePlayer, tutorialFontSize);
+		static const float verWidth = MeasureTextEx(engine::secondFont ,verText, verFontSize, 5).x;
+		static const float tutorialFontSize = static_cast<float>(GetScreenHeight() / buttonFontRatio);
+		static const float tutorialWidth = MeasureTextEx(engine::secondFont,tutorialTextOnePlayer, tutorialFontSize,5).x;
 
-		int creditsX = (GetScreenWidth() - tutorialWidth) / 2;
-		int creditsY = (GetScreenHeight() - tutorialFontSize) / 2;
+		float creditsX = (GetScreenWidth() - tutorialWidth) / 2;
+		float creditsY = (GetScreenHeight() - tutorialFontSize) / 2;
 
-		DrawText(tutorialTextOnePlayer, creditsX, creditsY, tutorialFontSize, WHITE);
+		DrawTextEx(engine::secondFont, tutorialTextOnePlayer, { creditsX,creditsY }, tutorialFontSize, 5, SKYBLUE);
 		creditsY += (tutorialFontSize);
-		DrawText(tutorialTextTwoPlayers, creditsX, creditsY, tutorialFontSize, WHITE);
+		DrawTextEx(engine::secondFont, verText, { static_cast<float>(GetScreenWidth() - verWidth - verPadding),verPadding }, verFontSize, 5, SKYBLUE);
 
-		DrawText(verText, GetScreenWidth() - verWidth - verPadding, verPadding, verFontSize, RED);
 	}
 }

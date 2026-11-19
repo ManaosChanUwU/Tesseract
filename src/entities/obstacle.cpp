@@ -5,7 +5,7 @@ namespace tesseract::entities
 	static const float obstWidthRatio = 16.0f;    
 	static const float obstHeightRatio = 1.5f;    
 	static const float obstSpeed = 300.0f;         
-	static const float biggerGapRatio = 2.0f;
+	static const float biggerGapRatio = 3.0f;
 	static const float smallestGapRatio = 5.0f;
 
 	static void ResetPos(Obstacle& obstacle);
@@ -45,5 +45,6 @@ namespace tesseract::entities
 
 		obstacle.topPos.y = obstacle.pos.y - obstacle.size.y - GetRandomValue(static_cast<int>(minMargin), static_cast<int>(maxMargin));
 		obstacle.topPos.x = obstacle.pos.x;
+		obstacle.gotPoints = true;
 	}
 }
