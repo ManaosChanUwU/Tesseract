@@ -5,23 +5,24 @@ namespace tesseract::entities
 {
 	enum BackgroundLayer { FarLayer, MidLayer, CloseLayer, LayerCount };
 
-	static const float farWidthRatio = 64.0f;     
-	static const float farHeightRatio = 1.5f;     
-	static const float farSpacingRatio = 16.0f;   
+	static const float farWidthRatio = 64.0f;
+	static const float farHeightRatio = 1.5f;
+	static const float farSpacingRatio = 16.0f;
 	static const float farSpeed = 30.0f;
 
-	static const float midWidthRatio = 16.0f;     
-	static const float midHeightRatio = 2.5f;     
-	static const float midSpacingRatio = 10.0f;   
+	static const float midWidthRatio = 16.0f;
+	static const float midHeightRatio = 2.5f;
+	static const float midSpacingRatio = 10.0f;
 	static const float midSpeed = 75.0f;
 
-	static const float closeWidthRatio = 8.0f;    
-	static const float closeHeightRatio = 6.0f;   
-	static const float closeSpacingRatio = 6.0f;  
+	static const float closeWidthRatio = 8.0f;
+	static const float closeHeightRatio = 6.0f;
+	static const float closeSpacingRatio = 6.0f;
 	static const float closeSpeed = 150.0f;
 
 	static const float midOffsetRatio = 32.0f;
 	static const float closeOffsetRatio = 16.0f;
+
 
 	struct Layer
 	{
@@ -63,12 +64,13 @@ namespace tesseract::entities
 		background.layers[FarLayer].speed = farSpeed;
 	}
 
+
 	void UpdateBackground()
 	{
 		for (int i = 0; i < LayerCount; i++)
 		{
 			background.layers[i].pos.x -= background.layers[i].speed * GetFrameTime();
-		
+
 			if (background.layers[i].pos.x <= -(background.layers[i].size.x + background.layers[i].spacing))
 			{
 				background.layers[i].pos.x += background.layers[i].size.x + background.layers[i].spacing;
@@ -85,10 +87,10 @@ namespace tesseract::entities
 			while (x < GetScreenWidth())
 			{
 				DrawRectangleLines(static_cast<int>(x), static_cast<int>(background.layers[i].pos.y), static_cast<int>(background.layers[i].size.x), static_cast<int>(background.layers[i].size.y), background.layers[i].color);
-			
+
 				x += static_cast<int>(background.layers[i].size.x) + static_cast<int>(background.layers[i].spacing);
 			}
-			
+
 		}
 	}
 }

@@ -6,4 +6,5 @@ namespace tesseract::entities
 	void InitBackground();
 	void UpdateBackground();
 	void DrawBackground();
+
 }

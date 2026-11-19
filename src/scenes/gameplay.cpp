@@ -37,12 +37,12 @@ namespace tesseract::scenes
 		isGameOver = false;
 		isGameStarted = false;
 		float screenHeigth = static_cast<float>(GetScreenHeight());
-		entities::InitShip(P1, screenHeigth * 0.3f, "res/ship.png");
+		entities::InitShip(P1, screenHeigth * 0.3f, "res/shipP1.png");
 		entities::InitObstacle(Obs);
 		entities::InitBackground();
 		if (twoPlayers)
 		{
-			entities::InitShip(P2, screenHeigth * 0.4f, "res/ship2.png");
+			entities::InitShip(P2, screenHeigth * 0.4f, "res/shipP2.png");
 		}
 	}
 
@@ -143,7 +143,7 @@ namespace tesseract::scenes
 
 	void DrawGameplay()
 	{
-		entities::DrawBackground();//TODO borrar textura de la nave
+		entities::DrawBackground();
 		entities::DrawShip(P1);
 		if (twoPlayers)
 		{
